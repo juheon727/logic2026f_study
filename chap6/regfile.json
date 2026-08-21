@@ -1,0 +1,292 @@
+{
+  "creator": "Yosys 0.68+64 (git sha1 b8959e70b, GNU /usr/bin/c++ 13.3.0)",
+  "modules": {
+    "regfile": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "regfile.v:1.1-26.10"
+      },
+      "parameter_default_values": {
+        "word_size": "00000000000000000000000000001000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "new_data": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "w_addr": {
+          "direction": "input",
+          "bits": [ 11, 12, 13 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 14 ]
+        },
+        "r_addr1": {
+          "direction": "input",
+          "bits": [ 15, 16, 17 ]
+        },
+        "r_addr2": {
+          "direction": "input",
+          "bits": [ 18, 19, 20 ]
+        },
+        "r_out1": {
+          "direction": "output",
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ]
+        },
+        "r_out2": {
+          "direction": "output",
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ]
+        }
+      },
+      "cells": {
+        "$auto$proc_memwr.cc:45:proc_memwr$24": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000011",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000000",
+            "PRIORITY_MASK": "",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "regfile.v:18.13-18.40"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 37, 38, 39 ],
+            "CLK": [ 2 ],
+            "DATA": [ 40, 41, 42, 43, 44, 45, 46, 47 ],
+            "EN": [ 48, 48, 48, 48, 48, 48, 48, 48 ]
+          }
+        },
+        "$memrd$\\storage$regfile.v:22$10": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000011",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\storage",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "regfile.v:22.18-22.25"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 15, 16, 17 ],
+            "CLK": [ "x" ],
+            "DATA": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$memrd$\\storage$regfile.v:23$11": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000011",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\storage",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "regfile.v:23.18-23.25"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 18, 19, 20 ],
+            "CLK": [ "x" ],
+            "DATA": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$procmux$13": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "regfile.v:17.12-17.14|regfile.v:17.9-18.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 14 ],
+            "Y": [ 48 ]
+          }
+        },
+        "$procmux$16": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "regfile.v:17.12-17.14|regfile.v:17.9-18.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "S": [ 14 ],
+            "Y": [ 40, 41, 42, 43, 44, 45, 46, 47 ]
+          }
+        },
+        "$procmux$19": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "regfile.v:17.12-17.14|regfile.v:17.9-18.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 11, 12, 13 ],
+            "S": [ 14 ],
+            "Y": [ 37, 38, 39 ]
+          }
+        }
+      },
+      "memories": {
+        "storage": {
+          "hide_name": 0,
+          "attributes": {
+            "src": "regfile.v:14.25-14.32"
+          },
+          "width": 8,
+          "start_offset": 0,
+          "size": 8
+        }
+      },
+      "netnames": {
+        "$0$memwr$\\storage$regfile.v:18$1_ADDR[2:0]$3": {
+          "hide_name": 1,
+          "bits": [ 37, 38, 39 ],
+          "attributes": {
+            "src": "regfile.v:16.5-19.8"
+          }
+        },
+        "$0$memwr$\\storage$regfile.v:18$1_DATA[7:0]$4": {
+          "hide_name": 1,
+          "bits": [ 40, 41, 42, 43, 44, 45, 46, 47 ],
+          "attributes": {
+            "src": "regfile.v:16.5-19.8"
+          }
+        },
+        "$0$memwr$\\storage$regfile.v:18$1_EN[7:0]$5": {
+          "hide_name": 1,
+          "bits": [ 48, 48, 48, 48, 48, 48, 48, 48 ],
+          "attributes": {
+            "src": "regfile.v:16.5-19.8"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "regfile.v:4.16-4.19"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 14 ],
+          "attributes": {
+            "src": "regfile.v:7.16-7.18"
+          }
+        },
+        "new_data": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "regfile.v:5.34-5.42"
+          }
+        },
+        "r_addr1": {
+          "hide_name": 0,
+          "bits": [ 15, 16, 17 ],
+          "attributes": {
+            "src": "regfile.v:8.22-8.29"
+          }
+        },
+        "r_addr2": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20 ],
+          "attributes": {
+            "src": "regfile.v:9.22-9.29"
+          }
+        },
+        "r_out1": {
+          "hide_name": 0,
+          "bits": [ 21, 22, 23, 24, 25, 26, 27, 28 ],
+          "attributes": {
+            "src": "regfile.v:10.34-10.40"
+          }
+        },
+        "r_out2": {
+          "hide_name": 0,
+          "bits": [ 29, 30, 31, 32, 33, 34, 35, 36 ],
+          "attributes": {
+            "src": "regfile.v:11.34-11.40"
+          }
+        },
+        "w_addr": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13 ],
+          "attributes": {
+            "src": "regfile.v:6.22-6.28"
+          }
+        }
+      }
+    }
+  }
+}

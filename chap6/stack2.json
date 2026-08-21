@@ -1,0 +1,941 @@
+{
+  "creator": "Yosys 0.68+64 (git sha1 b8959e70b, GNU /usr/bin/c++ 13.3.0)",
+  "modules": {
+    "stack": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "cells_not_processed": "00000000000000000000000000000001",
+        "src": "stack2.v:1.1-50.10"
+      },
+      "parameter_default_values": {
+        "bits_of_counter": "00000000000000000000000000000011",
+        "n_regs": "00000000000000000000000000001000",
+        "word_size": "00000000000000000000000000001000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "pop": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "push": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "data_input": {
+          "direction": "input",
+          "bits": [ 6, 7, 8, 9, 10, 11, 12, 13 ]
+        },
+        "stack_top": {
+          "direction": "output",
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+        },
+        "lifo_empty": {
+          "direction": "output",
+          "bits": [ 22 ]
+        },
+        "lifo_full": {
+          "direction": "output",
+          "bits": [ "0" ]
+        }
+      },
+      "cells": {
+        "$add$stack2.v:40$47": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "stack2.v:40.38-40.55"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23, 24, 25 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ]
+          }
+        },
+        "$and$stack2.v:37$43": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "stack2.v:37.20-37.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 58 ],
+            "Y": [ 59 ]
+          }
+        },
+        "$auto$ff.cc:337:slice$140": {
+          "hide_name": 1,
+          "type": "$sdffe",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "EN_POLARITY": "00000000000000000000000000000001",
+            "SRST_POLARITY": "00000000000000000000000000000001",
+            "SRST_VALUE": "000",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "EN": "input",
+            "Q": "output",
+            "SRST": "input"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 60, 61, 62 ],
+            "EN": [ 63 ],
+            "Q": [ 23, 24, 25 ],
+            "SRST": [ 5 ]
+          }
+        },
+        "$auto$opt_dff.cc:351:make_patterns_logic$142": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 64, 65 ],
+            "Y": [ 63 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$129": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000000",
+            "PRIORITY_MASK": "",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$130": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000001",
+            "PRIORITY_MASK": "1",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$131": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000010",
+            "PRIORITY_MASK": "11",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$132": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000011",
+            "PRIORITY_MASK": "111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$133": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000100",
+            "PRIORITY_MASK": "1111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$134": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000101",
+            "PRIORITY_MASK": "11111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$135": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000110",
+            "PRIORITY_MASK": "111111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "0", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$136": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000000111",
+            "PRIORITY_MASK": "1111111",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:32.17-32.48"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ "1", "1", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "CLK": [ 2 ],
+            "DATA": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "EN": [ 66, 66, 66, 66, 66, 66, 66, 66 ]
+          }
+        },
+        "$auto$proc_memwr.cc:45:proc_memwr$137": {
+          "hide_name": 1,
+          "type": "$memwr_v2",
+          "parameters": {
+            "ABITS": "00000000000000000000000000000011",
+            "CLK_ENABLE": "1",
+            "CLK_POLARITY": "1",
+            "MEMID": "\\storage",
+            "PORTID": "00000000000000000000000000001000",
+            "PRIORITY_MASK": "00000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:39.21-39.57"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 67, 68, 69 ],
+            "CLK": [ 2 ],
+            "DATA": [ 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "EN": [ 78, 78, 78, 78, 78, 78, 78, 78 ]
+          }
+        },
+        "$eq$stack2.v:21$12": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "stack2.v:21.23-21.63"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23, 24, 25 ],
+            "Y": [ 22 ]
+          }
+        },
+        "$memrd$\\storage$stack2.v:24$15": {
+          "hide_name": 1,
+          "type": "$memrd",
+          "parameters": {
+            "ABITS": "00000000000000000000000000100000",
+            "CLK_ENABLE": "00000000000000000000000000000000",
+            "CLK_POLARITY": "00000000000000000000000000000000",
+            "MEMID": "\\storage",
+            "TRANSPARENT": "00000000000000000000000000000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "stack2.v:24.25-24.32"
+          },
+          "port_directions": {
+            "ADDR": "input",
+            "CLK": "input",
+            "DATA": "output",
+            "EN": "input"
+          },
+          "connections": {
+            "ADDR": [ 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110 ],
+            "CLK": [ "x" ],
+            "DATA": [ 111, 112, 113, 114, 115, 116, 117, 118 ],
+            "EN": [ "x" ]
+          }
+        },
+        "$not$stack2.v:37$42": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "stack2.v:37.26-37.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 22 ],
+            "Y": [ 58 ]
+          }
+        },
+        "$procmux$101": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:30.13-30.18|stack2.v:30.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 119, 120, 121, 122, 123, 124, 125, 126 ],
+            "B": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "S": [ 5 ],
+            "Y": [ 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$procmux$104": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:30.13-30.18|stack2.v:30.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 127, 128, 129 ],
+            "B": [ "x", "x", "x" ],
+            "S": [ 5 ],
+            "Y": [ 67, 68, 69 ]
+          }
+        },
+        "$procmux$107": {
+          "hide_name": 1,
+          "type": "$pmux",
+          "parameters": {
+            "S_WIDTH": "00000000000000000000000000000010",
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:41.20-41.20|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 79, 80, 81, 26, 27, 28 ],
+            "S": [ 64, 65 ],
+            "Y": [ 60, 61, 62 ]
+          }
+        },
+        "$procmux$108_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:41.20-41.20|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 59 ],
+            "B": [ "0", "1" ],
+            "Y": [ 64 ]
+          }
+        },
+        "$procmux$109_CMP0": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:37.58-37.58|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 4, 59 ],
+            "B": [ "1", "0" ],
+            "Y": [ 65 ]
+          }
+        },
+        "$procmux$114": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:23.13-23.24|stack2.v:23.9-26.43"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 111, 112, 113, 114, 115, 116, 117, 118 ],
+            "B": [ "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "S": [ 22 ],
+            "Y": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+          }
+        },
+        "$procmux$51": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:37.58-37.58|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 65 ],
+            "Y": [ 130 ]
+          }
+        },
+        "$procmux$58": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:37.58-37.58|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 6, 7, 8, 9, 10, 11, 12, 13 ],
+            "S": [ 65 ],
+            "Y": [ 119, 120, 121, 122, 123, 124, 125, 126 ]
+          }
+        },
+        "$procmux$65": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000011"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:37.58-37.58|stack2.v:37.13-46.20"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x" ],
+            "B": [ 23, 24, 25 ],
+            "S": [ 65 ],
+            "Y": [ 127, 128, 129 ]
+          }
+        },
+        "$procmux$95": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:30.13-30.18|stack2.v:30.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ "1" ],
+            "S": [ 5 ],
+            "Y": [ 66 ]
+          }
+        },
+        "$procmux$98": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "stack2.v:30.13-30.18|stack2.v:30.9-47.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 130 ],
+            "B": [ "0" ],
+            "S": [ 5 ],
+            "Y": [ 78 ]
+          }
+        },
+        "$sub$stack2.v:44$48": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000011",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000100000",
+            "Y_WIDTH": "00000000000000000000000000100000"
+          },
+          "attributes": {
+            "src": "stack2.v:44.38-44.55"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 23, 24, 25 ],
+            "B": [ "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+            "Y": [ 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110 ]
+          }
+        }
+      },
+      "memories": {
+        "storage": {
+          "hide_name": 0,
+          "attributes": {
+            "src": "stack2.v:16.29-16.36"
+          },
+          "width": 8,
+          "start_offset": 0,
+          "size": 8
+        }
+      },
+      "netnames": {
+        "$0$memwr$\\storage$stack2.v:32$2_EN[7:0]$18": {
+          "hide_name": 1,
+          "bits": [ 66, 66, 66, 66, 66, 66, 66, 66 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$0$memwr$\\storage$stack2.v:39$10_ADDR[2:0]$26": {
+          "hide_name": 1,
+          "bits": [ 67, 68, 69 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$0$memwr$\\storage$stack2.v:39$10_DATA[7:0]$27": {
+          "hide_name": 1,
+          "bits": [ 70, 71, 72, 73, 74, 75, 76, 77 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$0$memwr$\\storage$stack2.v:39$10_EN[7:0]$28": {
+          "hide_name": 1,
+          "bits": [ 78, 78, 78, 78, 78, 78, 78, 78 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$2$memwr$\\storage$stack2.v:39$10_ADDR[2:0]$44": {
+          "hide_name": 1,
+          "bits": [ 127, 128, 129 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$2$memwr$\\storage$stack2.v:39$10_DATA[7:0]$45": {
+          "hide_name": 1,
+          "bits": [ 119, 120, 121, 122, 123, 124, 125, 126 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$2$memwr$\\storage$stack2.v:39$10_EN[7:0]$46": {
+          "hide_name": 1,
+          "bits": [ 130, 130, 130, 130, 130, 130, 130, 130 ],
+          "attributes": {
+            "src": "stack2.v:29.5-48.8"
+          }
+        },
+        "$add$stack2.v:40$47_Y": {
+          "hide_name": 1,
+          "bits": [ 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57 ],
+          "attributes": {
+            "src": "stack2.v:40.38-40.55"
+          }
+        },
+        "$and$stack2.v:37$43_Y": {
+          "hide_name": 1,
+          "bits": [ 59 ],
+          "attributes": {
+            "src": "stack2.v:37.20-37.37"
+          }
+        },
+        "$auto$opt_dff.cc:350:make_patterns_logic$141": {
+          "hide_name": 1,
+          "bits": [ 63 ],
+          "attributes": {
+          }
+        },
+        "$memrd$\\storage$stack2.v:24$15_DATA": {
+          "hide_name": 1,
+          "bits": [ 111, 112, 113, 114, 115, 116, 117, 118 ],
+          "attributes": {
+            "src": "stack2.v:24.25-24.32"
+          }
+        },
+        "$not$stack2.v:37$42_Y": {
+          "hide_name": 1,
+          "bits": [ 58 ],
+          "attributes": {
+            "src": "stack2.v:37.26-37.37"
+          }
+        },
+        "$procmux$107_Y": {
+          "hide_name": 1,
+          "bits": [ 60, 61, 62 ],
+          "attributes": {
+          }
+        },
+        "$procmux$108_CMP": {
+          "hide_name": 1,
+          "bits": [ 64 ],
+          "attributes": {
+          }
+        },
+        "$procmux$109_CMP": {
+          "hide_name": 1,
+          "bits": [ 65 ],
+          "attributes": {
+          }
+        },
+        "$sub$stack2.v:24$16_Y": {
+          "hide_name": 1,
+          "bits": [ 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110 ],
+          "attributes": {
+            "src": "stack2.v:24.33-24.50"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "stack2.v:6.16-6.19"
+          }
+        },
+        "data_input": {
+          "hide_name": 0,
+          "bits": [ 6, 7, 8, 9, 10, 11, 12, 13 ],
+          "attributes": {
+            "src": "stack2.v:10.36-10.46"
+          }
+        },
+        "i": {
+          "hide_name": 0,
+          "bits": [ "0", "0", "0", "1", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "signed": 1,
+          "attributes": {
+            "src": "stack2.v:18.13-18.14"
+          }
+        },
+        "lifo_empty": {
+          "hide_name": 0,
+          "bits": [ 22 ],
+          "attributes": {
+            "src": "stack2.v:12.16-12.26"
+          }
+        },
+        "lifo_full": {
+          "hide_name": 0,
+          "bits": [ "0" ],
+          "attributes": {
+            "src": "stack2.v:13.16-13.25"
+          }
+        },
+        "pop": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "stack2.v:7.16-7.19"
+          }
+        },
+        "push": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "stack2.v:8.16-8.20"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "stack2.v:9.16-9.21"
+          }
+        },
+        "stack_pointer": {
+          "hide_name": 0,
+          "bits": [ 23, 24, 25 ],
+          "attributes": {
+            "src": "stack2.v:15.35-15.48"
+          }
+        },
+        "stack_top": {
+          "hide_name": 0,
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+          "attributes": {
+            "src": "stack2.v:11.36-11.45"
+          }
+        }
+      }
+    }
+  }
+}

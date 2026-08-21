@@ -1,0 +1,690 @@
+{
+  "creator": "Yosys 0.68+64 (git sha1 b8959e70b, GNU /usr/bin/c++ 13.3.0)",
+  "modules": {
+    "$paramod\\shiftreg\\n_regs=s32'00000000000000000000000000001000": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "hdlname": "shiftreg",
+        "src": "serial_adder.v:1.1-24.10"
+      },
+      "parameter_default_values": {
+        "n_regs": "00000000000000000000000000001000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "data": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "load": {
+          "direction": "input",
+          "bits": [ 11 ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [ 12 ]
+        },
+        "enable": {
+          "direction": "input",
+          "bits": [ 13 ]
+        },
+        "q": {
+          "direction": "output",
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ]
+        }
+      },
+      "cells": {
+        "$auto$ff.cc:337:slice$27": {
+          "hide_name": 1,
+          "type": "$sdffe",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "EN_POLARITY": "00000000000000000000000000000001",
+            "SRST_POLARITY": "00000000000000000000000000000001",
+            "SRST_VALUE": "00000000",
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "serial_adder.v:12.5-22.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "EN": "input",
+            "Q": "output",
+            "SRST": "input"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 22, 23, 24, 25, 26, 27, 28, 29 ],
+            "EN": [ 30 ],
+            "Q": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+            "SRST": [ 12 ]
+          }
+        },
+        "$auto$opt_dff.cc:351:make_patterns_logic$29": {
+          "hide_name": 1,
+          "type": "$reduce_bool",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000010",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11, 13 ],
+            "Y": [ 30 ]
+          }
+        },
+        "$procmux$15": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "serial_adder.v:19.18-19.24|serial_adder.v:19.14-21.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "x", "x", "x", "x", "x", "x", "x", "x" ],
+            "B": [ 15, 16, 17, 18, 19, 20, 21, "0" ],
+            "S": [ 13 ],
+            "Y": [ 31, 32, 33, 34, 35, 36, 37, 38 ]
+          }
+        },
+        "$procmux$18": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "serial_adder.v:16.18-16.22|serial_adder.v:16.14-21.12"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 31, 32, 33, 34, 35, 36, 37, 38 ],
+            "B": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "S": [ 11 ],
+            "Y": [ 22, 23, 24, 25, 26, 27, 28, 29 ]
+          }
+        }
+      },
+      "netnames": {
+        "$auto$opt_dff.cc:350:make_patterns_logic$28": {
+          "hide_name": 1,
+          "bits": [ 30 ],
+          "attributes": {
+          }
+        },
+        "$procmux$15_Y": {
+          "hide_name": 1,
+          "bits": [ 31, 32, 33, 34, 35, 36, 37, 38 ],
+          "attributes": {
+          }
+        },
+        "$procmux$18_Y": {
+          "hide_name": 1,
+          "bits": [ 22, 23, 24, 25, 26, 27, 28, 29 ],
+          "attributes": {
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "serial_adder.v:4.16-4.19"
+          }
+        },
+        "data": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "serial_adder.v:5.31-5.35"
+          }
+        },
+        "enable": {
+          "hide_name": 0,
+          "bits": [ 13 ],
+          "attributes": {
+            "src": "serial_adder.v:8.16-8.22"
+          }
+        },
+        "load": {
+          "hide_name": 0,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "serial_adder.v:6.16-6.20"
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 14, 15, 16, 17, 18, 19, 20, 21 ],
+          "attributes": {
+            "src": "serial_adder.v:9.31-9.32"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 12 ],
+          "attributes": {
+            "src": "serial_adder.v:7.16-7.21"
+          }
+        }
+      }
+    },
+    "full_adder": {
+      "attributes": {
+        "src": "serial_adder.v:26.1-38.10"
+      },
+      "ports": {
+        "a": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "c_in": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "s": {
+          "direction": "output",
+          "bits": [ 5 ]
+        },
+        "c_out": {
+          "direction": "output",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$and$serial_adder.v:35$5": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:35.18-35.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 3 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$and$serial_adder.v:35$6": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:35.28-35.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 4 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$and$serial_adder.v:35$8": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:35.41-35.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 4 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$or$serial_adder.v:35$7": {
+          "hide_name": 1,
+          "type": "$or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:35.17-35.37"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 8 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$or$serial_adder.v:35$9": {
+          "hide_name": 1,
+          "type": "$or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:35.17-35.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "B": [ 9 ],
+            "Y": [ 6 ]
+          }
+        },
+        "$xor$serial_adder.v:34$3": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:34.13-34.18"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 3 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$xor$serial_adder.v:34$4": {
+          "hide_name": 1,
+          "type": "$xor",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:34.13-34.25"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 11 ],
+            "B": [ 4 ],
+            "Y": [ 5 ]
+          }
+        }
+      },
+      "netnames": {
+        "$and$serial_adder.v:35$5_Y": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "serial_adder.v:35.18-35.23"
+          }
+        },
+        "$and$serial_adder.v:35$6_Y": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "serial_adder.v:35.28-35.36"
+          }
+        },
+        "$and$serial_adder.v:35$8_Y": {
+          "hide_name": 1,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "serial_adder.v:35.41-35.49"
+          }
+        },
+        "$or$serial_adder.v:35$7_Y": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+            "src": "serial_adder.v:35.17-35.37"
+          }
+        },
+        "$xor$serial_adder.v:34$3_Y": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+            "src": "serial_adder.v:34.13-34.18"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "serial_adder.v:27.16-27.17"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "serial_adder.v:28.16-28.17"
+          }
+        },
+        "c_in": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "serial_adder.v:29.16-29.20"
+          }
+        },
+        "c_out": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "serial_adder.v:31.16-31.21"
+          }
+        },
+        "s": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "serial_adder.v:30.16-30.17"
+          }
+        }
+      }
+    },
+    "serial_adder": {
+      "attributes": {
+        "dynports": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "serial_adder.v:40.1-93.10"
+      },
+      "parameter_default_values": {
+        "n_bits": "00000000000000000000000000001000"
+      },
+      "ports": {
+        "clk": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "input_a": {
+          "direction": "input",
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ]
+        },
+        "input_b": {
+          "direction": "input",
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ]
+        },
+        "load_a": {
+          "direction": "input",
+          "bits": [ 19 ]
+        },
+        "load_b": {
+          "direction": "input",
+          "bits": [ 20 ]
+        },
+        "reset": {
+          "direction": "input",
+          "bits": [ 21 ]
+        },
+        "c_out": {
+          "direction": "output",
+          "bits": [ 22 ]
+        },
+        "s": {
+          "direction": "output",
+          "bits": [ 23 ]
+        }
+      },
+      "cells": {
+        "$auto$ff.cc:337:slice$25": {
+          "hide_name": 1,
+          "type": "$sdff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "SRST_POLARITY": "00000000000000000000000000000001",
+            "SRST_VALUE": "0",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "serial_adder.v:86.5-91.8"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output",
+            "SRST": "input"
+          },
+          "connections": {
+            "CLK": [ 2 ],
+            "D": [ 22 ],
+            "Q": [ 24 ],
+            "SRST": [ 21 ]
+          }
+        },
+        "fa": {
+          "hide_name": 0,
+          "type": "full_adder",
+          "parameters": {
+          },
+          "attributes": {
+            "module_not_derived": "00000000000000000000000000000001",
+            "src": "serial_adder.v:78.16-84.6"
+          },
+          "port_directions": {
+            "a": "input",
+            "b": "input",
+            "c_in": "input",
+            "c_out": "output",
+            "s": "output"
+          },
+          "connections": {
+            "a": [ 25 ],
+            "b": [ 26 ],
+            "c_in": [ 24 ],
+            "c_out": [ 22 ],
+            "s": [ 23 ]
+          }
+        },
+        "shr_a": {
+          "hide_name": 0,
+          "type": "$paramod\\shiftreg\\n_regs=s32'00000000000000000000000000001000",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "serial_adder.v:58.7-65.6"
+          },
+          "port_directions": {
+            "clk": "input",
+            "data": "input",
+            "enable": "input",
+            "load": "input",
+            "q": "output",
+            "reset": "input"
+          },
+          "connections": {
+            "clk": [ 2 ],
+            "data": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+            "enable": [ "1" ],
+            "load": [ 19 ],
+            "q": [ 25, 27, 28, 29, 30, 31, 32, 33 ],
+            "reset": [ 21 ]
+          }
+        },
+        "shr_b": {
+          "hide_name": 0,
+          "type": "$paramod\\shiftreg\\n_regs=s32'00000000000000000000000000001000",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "serial_adder.v:69.7-76.6"
+          },
+          "port_directions": {
+            "clk": "input",
+            "data": "input",
+            "enable": "input",
+            "load": "input",
+            "q": "output",
+            "reset": "input"
+          },
+          "connections": {
+            "clk": [ 2 ],
+            "data": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+            "enable": [ "1" ],
+            "load": [ 20 ],
+            "q": [ 26, 34, 35, 36, 37, 38, 39, 40 ],
+            "reset": [ 21 ]
+          }
+        }
+      },
+      "netnames": {
+        "c_in": {
+          "hide_name": 0,
+          "bits": [ 24 ],
+          "attributes": {
+            "src": "serial_adder.v:54.9-54.13"
+          }
+        },
+        "c_out": {
+          "hide_name": 0,
+          "bits": [ 22 ],
+          "attributes": {
+            "src": "serial_adder.v:49.17-49.22"
+          }
+        },
+        "clk": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "serial_adder.v:43.16-43.19"
+          }
+        },
+        "data_a": {
+          "hide_name": 0,
+          "bits": [ 25, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "serial_adder.v:52.27-52.33"
+          }
+        },
+        "data_b": {
+          "hide_name": 0,
+          "bits": [ 26, 34, 35, 36, 37, 38, 39, 40 ],
+          "attributes": {
+            "src": "serial_adder.v:53.27-53.33"
+          }
+        },
+        "input_a": {
+          "hide_name": 0,
+          "bits": [ 3, 4, 5, 6, 7, 8, 9, 10 ],
+          "attributes": {
+            "src": "serial_adder.v:44.33-44.40"
+          }
+        },
+        "input_b": {
+          "hide_name": 0,
+          "bits": [ 11, 12, 13, 14, 15, 16, 17, 18 ],
+          "attributes": {
+            "src": "serial_adder.v:45.33-45.40"
+          }
+        },
+        "load_a": {
+          "hide_name": 0,
+          "bits": [ 19 ],
+          "attributes": {
+            "src": "serial_adder.v:46.16-46.22"
+          }
+        },
+        "load_b": {
+          "hide_name": 0,
+          "bits": [ 20 ],
+          "attributes": {
+            "src": "serial_adder.v:47.16-47.22"
+          }
+        },
+        "reset": {
+          "hide_name": 0,
+          "bits": [ 21 ],
+          "attributes": {
+            "src": "serial_adder.v:48.16-48.21"
+          }
+        },
+        "s": {
+          "hide_name": 0,
+          "bits": [ 23 ],
+          "attributes": {
+            "src": "serial_adder.v:50.17-50.18"
+          }
+        }
+      }
+    }
+  }
+}

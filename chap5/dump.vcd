@@ -1,0 +1,198 @@
+$date
+	Fri Aug  7 14:03:40 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_circuit $end
+$var wire 16 ! sum [15:0] $end
+$var wire 1 " p_out $end
+$var wire 1 # g_out $end
+$var reg 16 $ a [15:0] $end
+$var reg 16 % b [15:0] $end
+$scope module uut $end
+$var wire 16 & a [15:0] $end
+$var wire 16 ' b [15:0] $end
+$var wire 1 ( c_0 $end
+$var wire 16 ) sum [15:0] $end
+$var wire 4 * prop [3:0] $end
+$var wire 1 " p_out $end
+$var wire 4 + gen [3:0] $end
+$var wire 1 # g_out $end
+$var wire 4 , carries [3:0] $end
+$scope begin gen_cla[0] $end
+$var parameter 2 - i $end
+$scope module sub_cl_adder $end
+$var wire 4 . a [3:0] $end
+$var wire 4 / b [3:0] $end
+$var wire 1 0 c_0 $end
+$var wire 4 1 gen [3:0] $end
+$var wire 4 2 prop [3:0] $end
+$var wire 4 3 sum [3:0] $end
+$var wire 1 4 p_out $end
+$var wire 1 5 g_out $end
+$var wire 4 6 carries [3:0] $end
+$scope module cla $end
+$var wire 1 0 c_0 $end
+$var wire 4 7 g_in [3:0] $end
+$var wire 1 5 g_out $end
+$var wire 4 8 p_in [3:0] $end
+$var wire 1 4 p_out $end
+$var wire 4 9 c [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope begin gen_cla[1] $end
+$var parameter 2 : i $end
+$scope module sub_cl_adder $end
+$var wire 4 ; a [3:0] $end
+$var wire 4 < b [3:0] $end
+$var wire 1 = c_0 $end
+$var wire 4 > gen [3:0] $end
+$var wire 4 ? prop [3:0] $end
+$var wire 4 @ sum [3:0] $end
+$var wire 1 A p_out $end
+$var wire 1 B g_out $end
+$var wire 4 C carries [3:0] $end
+$scope module cla $end
+$var wire 1 = c_0 $end
+$var wire 4 D g_in [3:0] $end
+$var wire 1 B g_out $end
+$var wire 4 E p_in [3:0] $end
+$var wire 1 A p_out $end
+$var wire 4 F c [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope begin gen_cla[2] $end
+$var parameter 3 G i $end
+$scope module sub_cl_adder $end
+$var wire 4 H a [3:0] $end
+$var wire 4 I b [3:0] $end
+$var wire 1 J c_0 $end
+$var wire 4 K gen [3:0] $end
+$var wire 4 L prop [3:0] $end
+$var wire 4 M sum [3:0] $end
+$var wire 1 N p_out $end
+$var wire 1 O g_out $end
+$var wire 4 P carries [3:0] $end
+$scope module cla $end
+$var wire 1 J c_0 $end
+$var wire 4 Q g_in [3:0] $end
+$var wire 1 O g_out $end
+$var wire 4 R p_in [3:0] $end
+$var wire 1 N p_out $end
+$var wire 4 S c [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope begin gen_cla[3] $end
+$var parameter 3 T i $end
+$scope module sub_cl_adder $end
+$var wire 4 U a [3:0] $end
+$var wire 4 V b [3:0] $end
+$var wire 1 W c_0 $end
+$var wire 4 X gen [3:0] $end
+$var wire 4 Y prop [3:0] $end
+$var wire 4 Z sum [3:0] $end
+$var wire 1 [ p_out $end
+$var wire 1 \ g_out $end
+$var wire 4 ] carries [3:0] $end
+$scope module cla $end
+$var wire 1 W c_0 $end
+$var wire 4 ^ g_in [3:0] $end
+$var wire 1 \ g_out $end
+$var wire 4 _ p_in [3:0] $end
+$var wire 1 [ p_out $end
+$var wire 4 ` c [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$scope module cla $end
+$var wire 1 ( c_0 $end
+$var wire 4 a g_in [3:0] $end
+$var wire 1 # g_out $end
+$var wire 4 b p_in [3:0] $end
+$var wire 1 " p_out $end
+$var wire 4 c c [3:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b11 T
+b10 G
+b1 :
+b0 -
+$end
+#0
+$dumpvars
+b10 c
+b0 b
+b1 a
+b0 `
+b1 _
+b0 ^
+b0 ]
+0\
+0[
+b1 Z
+b1 Y
+b0 X
+0W
+b1 V
+b0 U
+b0 S
+b1 R
+b0 Q
+b0 P
+0O
+0N
+b1 M
+b1 L
+b0 K
+0J
+b0 I
+b1 H
+b111 F
+b1001 E
+b10 D
+b111 C
+0B
+0A
+b1110 @
+b1001 ?
+b10 >
+1=
+b11 <
+b1010 ;
+b1100 9
+b1 8
+b1110 7
+b1100 6
+15
+04
+b1101 3
+b1 2
+b1110 1
+00
+b1110 /
+b1111 .
+b10 ,
+b1 +
+b0 *
+b1000111101101 )
+0(
+b1000000111110 '
+b110101111 &
+b1000000111110 %
+b110101111 $
+0#
+0"
+b1000111101101 !
+$end
+#10000
