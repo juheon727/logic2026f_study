@@ -1,12 +1,12 @@
 `timescale 1ns/1ps
 
 module divider_tb;
-    reg [3:0] a, b;
-    wire [3:0] quotient, remainder;
+    reg [7:0] a, b;
+    wire [7:0] quotient, remainder;
     wire zf;
 
     unsigned_divider #(
-        .n_bits(4)
+        .n_bits(8)
     ) dut (
         .dividend(a),
         .divisor(b),
@@ -19,10 +19,10 @@ module divider_tb;
         $dumpfile("dump.vcd");
         $dumpvars(0, divider_tb);
 
-        a = 4'b1011;
-        b = 4'b0011;
+        a = 8'd149;
+        b = 8'd3;
 
-        #30;
+        #40;
 
         $display("Quotient: %d, Remainder: %d\n", quotient, remainder);
         $display("ZF: %b\n", zf);
